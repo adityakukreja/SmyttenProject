@@ -1,0 +1,83 @@
+<div class="row" style="margin-top: 20px;">
+
+  <div class="col-lg-3">
+
+    <div class="menuBlock">
+      <h2 class="product">Products</h2>
+    <ul>
+        <li><a id="p1" (click)="addActive('p1')"><strong>Product 1</strong></a></li>
+    
+    </ul>
+    </div>
+
+
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a (click)="addActive('p1')" href="#">Product 1</a>
+    </div>
+    
+    <!-- Use any element to open the sidenav -->
+    <span onclick="openNav()">Click to Open Menu</span>
+   
+
+  </div>
+
+  <div class="col-lg-9"> 
+
+    <div *ngIf="mssg">
+      <h3 style="text-align: center;" >Please click the Product from Menu</h3>
+    </div>
+
+<div *ngIf="!mssg">
+  <div class="tab">
+    <button class="tablinks" onclick="openProduct(event, 'Items')">Items</button>
+    <button class="tablinks" onclick="openProduct(event, 'Store')">Store</button>
+  </div>
+   
+  <!-- Tab content -->
+   <div id="Items" class="tabcontent">
+    <div class="card" style="display: inline-block" *ngFor="let val of item">
+      <div class="row">
+        <div class="col-lg-5">
+          <img src="{{val.image_url}}" alt="Avatar" class="image">
+        </div>
+        <div class="col-lg-7" style="margin-top: 35px;margin-left: 10px;">
+          <strong>{{val.name}}</strong>
+          <div>
+            Price : Rs.{{val.price}}
+          </div>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div id="Store" class="tabcontent">
+    <div *ngFor="let val of storeFilterdList" style="margin-top:20px;margin-bottom: 15px;">
+      <h2 class="alphabetHeading">{{val.key}}</h2>
+    
+    <div class="card" style="display: inline-block" *ngFor="let storedata of val.namesList">
+      <div class="row">
+        <div class="col-lg-5">
+          <img src="{{storedata.icon}}" alt="Avatar" class="image">
+        </div>
+        <div class="col-lg-7" style="margin-top: 35px;margin-left: 10px;">
+          <strong>{{storedata.name}}</strong>
+          <div>
+            Id : {{storedata.id}}
+          </div>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  </div>
+</div>
+   
+
+  </div>
+
+</div>
+

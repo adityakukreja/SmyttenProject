@@ -36,7 +36,6 @@ export class ProductComponent implements OnInit {
 
   this.storeFilterdList = Object.keys(grouped).map(key => ({key,namesList : grouped[key]}));
   
-  console.log(this.storeFilterdList)
  }
 
   addActive(val : any){
@@ -51,7 +50,6 @@ export class ProductComponent implements OnInit {
   }
 
   searchProducts(){
-    console.log(this.searchValue)
     this.stores = [];
     for(let val of this.searchList){
       if(val.name.toLowerCase().includes(this.searchValue.toLowerCase())){

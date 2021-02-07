@@ -54,6 +54,13 @@
   </div>
   
   <div id="Store" class="tabcontent">
+    <div class="search"> 
+      <form action="#"> 
+          <input type="text" (keyup)="searchProducts()"
+            [(ngModel)]="searchValue"  placeholder=" Search Products.."
+              name="search"> 
+      </form> 
+  </div> 
     <div *ngFor="let val of storeFilterdList" style="margin-top:20px;margin-bottom: 15px;">
       <h2 class="alphabetHeading">{{val.key}}</h2>
     

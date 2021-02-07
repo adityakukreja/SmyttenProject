@@ -12,10 +12,13 @@ export class ProductComponent implements OnInit {
   mssg : boolean = true;
   item : ProductModel[] = (items as any).default;
   stores : StoreModel[]=(store as any).default;
+  searchList : StoreModel[]=[];
   storeFilterdList : any[]=[];
+  searchValue:string="";
   constructor() { }
 
   ngOnInit(): void {
+    this.searchList=this.stores;
     this.sortStoreList();
   }
 
@@ -45,6 +48,17 @@ export class ProductComponent implements OnInit {
       document.getElementById(val).classList.add("active")
       this.mssg=false;
     }
+  }
+
+  searchProducts(){
+    console.log(this.searchValue)
+    this.stores = [];
+    for(let val of this.searchList){
+      if(val.name.toLowerCase().includes(this.searchValue.toLowerCase())){
+        this.stores.push(val);
+      }
+    }
+    this.sortStoreList();
   }
 
 }
